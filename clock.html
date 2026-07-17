@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+    height:100vh;
+    background-color:black;
+    margin:0px;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+.time{
+    height:180px;
+    width:330px;
+    border:solid 3px lime;
+    border-radius:20px;
+    text-align:center;
+    font-size:60px;
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+   
+}
+font{
+    font-family:"DS-Digital", monospace;
+}
+#dt{
+    color:white;
+}
+
+    </style>
+</head>
+<body>
+    <div class="date">
+        <h3 id="dt"></h3>
+    </div>
+    
+    <div class="time"><font id="now">00:00:00</font></div>
+    
+    <script>
+        let today=new Date();
+let d=today.getDate();
+let m=today.getMonth();
+let y=today.getFullYear();
+if(d<10){
+    d="0"+d;
+}
+let month=eval(m+1);
+if((month)<10){
+    month="0"+month;
+}
+document.getElementById("dt").innerHTML=d+"/"+month+"/"+y;
+function exacttime()
+{
+let now=new Date();
+let h=now.getHours();
+let min=now.getMinutes();
+let s=now.getSeconds();
+
+if(h<10){
+    h="0"+h;
+}
+if(min<10){
+    min="0"+min;
+}
+if(s<10){
+    s="0"+s;
+}
+document.getElementById("now").innerHTML=h+":"+min+":"+s;
+}
+exacttime();
+setInterval(exacttime,1000);
+
+    </script>
+</body>
+</html>
